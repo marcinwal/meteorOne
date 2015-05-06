@@ -14,6 +14,40 @@ if (Meteor.isClient) {
       return Products.find({place: 'supermarket'});
     }
   });  
+
+  Template.fridge.rendered = function(){
+    var templateInstance = this;
+
+    templateInstance.$('#fridge').droppable({
+      drop: function(evt,ui){
+        var query = {_id: ui.draggable.data('id')};
+        var changes = {$set: {place: 'fridge'} };
+        Products.update(query,changes);
+      }
+    });
+  };
+
+  Template.productList.rendered = function(){
+    var templateInstance = this;
+
+    templateInstance.$('#supermarket').droppable({
+      drop: function(evt,ui){
+        var query = {_id: ui.draggable.data('id')};
+        var changes = {$set: {place: 'supermarket'} };
+        Products.update(query,changes);
+      }
+    });
+  };
+
+  Template.productListItem.rendered = function(){
+    var templateInstance = this;
+
+    templateInstance.$('.draggable').draggable({
+      cursor: 'move',
+      helper: 'clone'
+    });
+  };
+
 }
 
 if (Meteor.isServer) {

@@ -1,5 +1,6 @@
 <head>
   <title>myFridge</title>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -29,7 +30,7 @@
 </template>
 
 <template name="productList">
-  <div id="supermarket" class="box">
+  <div id="supermarket" data-id="{{_id}}" class="box">
   <ul id="products">
   </ul>
     {{#each products}}
