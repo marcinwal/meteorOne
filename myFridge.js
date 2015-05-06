@@ -59,9 +59,22 @@ if (Meteor.isServer) {
     img: '/milk.png',
     place: 'fridge'
   });  
+
   Products.insert({
     name: 'Bread',
     img: '/bread.png',
+    place: 'supermarket'
+  });
+
+  Products.insert({
+    name: 'Juice',
+    img: '/juice.png',
+    place: 'supermarket'
+  });
+
+  Products.insert({
+    name: 'banana',
+    img: '/banana.png',
     place: 'supermarket'
   });
 
